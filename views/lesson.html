@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="item col-md-4">
+            <h1>Quiz {{single.id}}</h1>
+            <hr>
+            <div ng-repeat="quiz in quizArray">
+                <form>
+                    <h4>{{quiz.answer.translation}}</h4>
+                    <label class="radio-inline" ng-repeat="question in quiz.randomArray track by $index">
+                        <input type="radio" name="{{question.word}}">{{question.word}}
+                    </label>
+                    <hr>
+                </form>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+</div>
+
