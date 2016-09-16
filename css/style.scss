@@ -1,0 +1,350 @@
+
+
+$blue50:#E3F2FD;
+$blue100:#BBDEFB;
+$blue200:#448AFF;
+$blue400:#2979FF;
+$blue700:#2962FF;
+$blue900:#0D47A1;
+$blue1000:#012e75;
+
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #fff;
+} 
+
+.menuWrapper{
+    background-color: $blue900;
+    opacity: 0.9;
+    .navbar-default {
+        background-color: transparent;
+        border-color: transparent;
+        border: none;
+        min-height: 0px;
+        margin-bottom: 0;
+        .navbar-brand{
+            color: #fff;
+            padding:8px;
+            font-size:32px;
+            display: block;
+            line-height: 100%;
+            height: auto;
+        }
+        .nav.navbar-nav{
+            li{
+                a{
+                    color: #fff;
+                    font-size:16px;
+                    transition: all 0.5s;
+                }
+
+                a:hover{
+                    background-color: $blue1000;
+                    transition: all 0.5s;
+                }
+            }
+            li.active{
+                a{
+                    background-color: $blue1000;
+                    transition: all 0.5s;
+                }
+            }
+        }
+    }
+    .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus{
+        color: #fff; 
+    }
+}
+
+.lessonTile{
+    transition: all 0.5s;
+    padding: 30px 0;
+    margin-bottom: 32px;
+    display: block;
+    background-color: $blue1000;
+    opacity: 0.9;
+    transition: all 0.5s;
+
+
+
+    text-align: center;
+    &__title{
+        color: #fff;
+        display: block;
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+    &__date{
+        color: #fff;
+        display: block;
+        font-size:16px;
+    }
+}
+
+.lessonTile:hover{
+    transition: all 0.5s;
+    opacity: 0.7;
+    text-decoration: none;
+}
+
+
+@keyframes fillup {
+    to { stroke-dasharray: 158 158; }
+}
+
+
+.chart{
+    margin-top:20px;
+    position: relative;
+    svg {
+        width: 100px; height: 100px;
+        transform: rotate(-90deg);
+        background: $blue400;
+        border-radius: 50%;
+        border: 2px solid #fff;
+    } 
+
+    circle {
+        fill: $blue900;
+        stroke: $blue400;
+        stroke-width: 32;
+    }
+    &__score{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 30%;
+        font-size: 26px;
+        color: #fff;
+    }
+
+}
+
+
+
+#particleJS {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    position: fixed;
+    z-index: -1;
+}
+
+
+.ngWrapper{
+    padding-top:40px;
+}
+
+.lessonContainer{
+    padding: 20px 0;
+    .lessonTitle{
+        text-align: center;
+        font-size: 32px;
+        color: #fff;
+        padding-bottom:20px;
+        color: $blue900;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+
+.lessonNav{
+    text-align:center;
+
+    padding: 11px 11px 5px 11px;
+
+    &__btnWrapper{
+        height: 40px;
+        display: inline-block;
+        width:36px;
+        position:relative;
+        margin: 3px;
+        cursor: pointer;
+        transition: all .3s ease 0s;
+    }
+
+    &__btn{
+        padding:5px; 
+        display: inline-block;
+        color: $blue900;
+        padding:5px;
+        border: 2px solid $blue900;
+        opacity: 0.9;
+        width:36px;
+        font-size:16px;
+        transition: all .3s ease 0s;
+        position: absolute;
+        left:0;
+        top: 0;      
+        &--active{
+            font-size: 22px;
+            width:36px;
+            border-color: $blue1000;
+            background-color: $blue1000;
+            top: -5px;
+            transition: all .3s ease 0s;
+            color: #fff;
+        }
+        &--checked{
+            background-color: $blue1000;
+            transition: all 0.3s; 
+            color: #fff;
+        }
+    } 
+
+    &__btn:hover{
+        font-size: 22px;
+        width:36px;
+        color: #fff;
+        border-color: $blue1000;
+        background-color: $blue1000;
+        transition: all .3s ease 0s;
+        top: -5px;
+    }
+
+}
+
+.questionCol{
+    text-align:center;
+    background-color: $blue900;
+    opacity: 0.9;
+    margin-top:40px;
+    padding:20px 0;
+    .questionWord{
+        text-align:center;
+        font-size:24px;
+        color: #fff;
+        text-transform:uppercase;
+    }
+    .questionAnswer{
+        color: #fff;
+        font-size:18px;
+        padding:5px;
+        border:2px solid #fff;
+        margin:10px;
+        text-align: center;
+        display:inline-block;
+        width: 40%;
+        cursor: pointer;
+        background-color: transparent;
+        transition: all 0.3s;
+        &--active{
+            background-color: $blue1000;
+            transition: all 0.3s;
+        }
+    }
+    .questionAnswer:hover{
+        background-color: $blue1000;
+        transition: all 0.3s;
+    }
+}
+.naviButtonWrapper{
+    text-align:center;
+    .naviButton{
+        display: inline-block;
+        width: 65px;
+        text-align: center;
+        margin: 20px 7px;
+        border: 2px solid #0D47A1;
+        opacity: .9;
+        cursor: pointer;
+        .material-icons{
+            font-size:40px;
+            color:$blue900;
+        }
+    }
+}
+
+
+.right{
+    float:right;
+}
+
+.resetButton, .acceptButton{
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    width: 100px;
+    span{
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .material-icons{
+        font-size:70px;
+    }
+}
+
+.acceptButton{
+    color: #8BC34A;
+    border: 2px solid #8BC34A;
+}
+
+.resetButton{
+    color: #F44336;
+    border: 2px solid #F44336;
+}
+
+.button:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+
+.resultContainer{
+    text-align: center;
+    padding: 10px;
+    margin-top:40px;
+    color: #fff;
+    background-color: $blue1000;
+    opacity: 0.9;
+    table{
+        margin: 0 auto;
+        tr{
+            th{
+                font-weight: bold;
+                padding:5px;
+                text-align: left;
+            }
+            td{
+                padding:5px;
+                text-align: left;
+            }
+        }
+        .fail{
+            i{
+                color: #F44336;
+            }
+        }
+        .success{
+            i{
+                color: #8BC34A;
+            }
+        }
+
+    }
+}

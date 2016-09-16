@@ -134,7 +134,7 @@ class Lesson {
         $values = [];
 
         foreach ($splitedVocabulary as $worsdList) {
-            $values[] = "(null, '" . serialize($worsdList) . "', null, null)";
+            $values[] = "(null, '" . serialize($worsdList) . "', Mon Sep 05 2016 16:05:31 GMT+0200 (CEST), 0)";
         }
 
         $conn = new Database();

@@ -1,0 +1,23 @@
+{
+  "name": "englishcourse",
+  "version": "1.0.0",
+  "description": "package",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "angular-chart.js": "^1.0.2",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://filip_wronski@bitbucket.org/filip_wronski/englishapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/filip_wronski/englishapp#readme"
+}

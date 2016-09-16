@@ -1,8 +1,18 @@
 <div class="container">
     <div class="row">
         <div class="item col-md-4" ng-repeat="lesson in lessons">
-            <a href="#/{{$index}}">
-            <span>Lekcja {{$index + 1}}</span>
+            <a class="lessonTile" href="#/{{$index}}">
+                <span class="lessonTile__title">Lesson {{$index + 1}}</span> 
+                <span class="lessonTile__date" ng-hide="lesson.last_trening === null">Last Trening: <br>
+                    {{lesson.last_trening| date : 'medium'}}
+                </span>
+                
+                <div class="chart">
+                <svg viewBox="0 0 32 32">
+                <circle style="stroke-dasharray: {{lesson.last_score| number : 2}} 100;" r="16" cx="16" cy="16" stroke="black" stroke-width="3" fill="red" />
+                </svg>
+                <span class="chart__score" ng-hide="lesson.last_score === null">{{lesson.last_score| number:2}}%</span>
+                </div>
             </a>
         </div>
     </div>

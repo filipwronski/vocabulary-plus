@@ -1,20 +1,102 @@
-<div class="container">
+<div class="container lessonContainer" ng-hide="vm.isFinished === true">
     <div class="row">
-        <div class="item col-md-4">
-            <h1>Quiz {{single.id}}</h1>
-            <hr>
-            <div ng-repeat="quiz in quizArray">
-                <form>
-                    <h4>{{quiz.answer.translation}}</h4>
-                    <label class="radio-inline" ng-repeat="question in quiz.randomArray track by $index">
-                        <input type="radio" name="{{question.word}}">{{question.word}}
-                    </label>
-                    <hr>
-                </form>
+        <div class="col-md-12">
+            <h1 class="lessonTitle">Quiz {{vm.single.id}}</h1>
+            <div class="lessonNav">
+                <div class="lessonNav__btnWrapper" ng-repeat="question in vm.quizArray">
+                    <div class="lessonNav__btn" 
+
+                         ng-click="vm.setActiveQuestion($index)"
+                         ng-class="{'lessonNav__btn--active': vm.questionNumber === $index,
+                            'lessonNav__btn--checked': vm.answersArray[$index].value === 1 || vm.answersArray[$index].value === 0
+                        }"       
+                         >
+                        <span>{{$index + 1}}</span>
+                    </div>
+                </div>
             </div>
-            <hr>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="questionCol col-md-6 col-md-offset-3">
+            <div>
+                <h4 class="questionWord">{{vm.quizArray[vm.questionNumber].answer.translation}}</h4>
+                <div 
+                    class="questionAnswer" ng-repeat="question in vm.quizArray[vm.questionNumber].randomArray track by $index"
+                    ng-click="vm.selectQuestionAnswer(
+                                            vm.quizArray[vm.questionNumber],
+                                            question,
+                                            vm.questionNumber,
+                                            $index)"
+                    ng-class='{"questionAnswer--active":vm.quizArray[vm.questionNumber].selected === $index}'                
+                    >
+                    {{question.word}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-3 text-left">
+            <div class="resetButton" ng-really-click="vm.resetQuiz()" ng-really-message="Are you sure you want to reset quiz?">
+                <span>reset quiz</span>
+                <i class="material-icons button">close</i>
+            </div>
+        </div>
+        <div class="col-md-6 naviButtonWrapper">
+            <div class="naviButton" ng-click="vm.previousQuestion()">
+                <i class="material-icons button">chevron_left</i>
+            </div>
+            <div class="naviButton" ng-click="vm.nextQuestion()">
+                <i class="material-icons button" >chevron_right</i>
+            </div>
+        </div>
+        <div class="col-md-3 text-right">
+            <div class="acceptButton" ng-really-click="vm.getQuizResult()" ng-really-message="Are you sure you want to finish quiz?">
+                <span>Finish quiz</span>
+                <i class="material-icons button">check</i>
+            </div>
         </div>
     </div>
 </div>
-</div>
+<div class="container" ng-show="vm.isFinished === true" >
+    <div class="row">
+        <div class=" col-md-6 col-md-offset-3 resultContainer">
+            <h1>Your result is: {{vm.result| number : 2}} %</h1>   
+            <h3>Your answers:</h3>
+            <table>
+                <tr>
+                <th> 
+                </th>
+                <th>
+                    Word:
+                </th>
+                <th>
+                    Answer:
+                </th>
+                <th>
+                    Correct:
+                </th>
+                </tr>
+                <tr ng-hide="answer.answer == null" ng-repeat="answer in vm.answersArray track by $index" ng-class="answer.value === 1 ? 'success' : 'fail'">
+                    <td>
+                        <i class="material-icons">{{answer.value === 1 ? 'check' : 'close'}}<i> {{$index}}
+                                </td>
+                                <td>
+                                    {{answer.translation}}
+                                </td>
+                                <td>
+                                    {{answer.answer}}
+                                </td>
+                                <td>
+                                    {{answer.correctAnswer}}
+                                </td>
+                                </tr>
+                                </table>
+                                </div>
+                                </div>
+                                </div>
+
+
 
