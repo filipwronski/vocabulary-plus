@@ -1,4 +1,4 @@
-# Welcome to the vocabulary-plus wiki!
+# Welcome to the vocabulary-plus README!
 
 Vocabulary plus is simple application made using AngularJs and PHP. It's allow you to learn new words, which you can get from any website. Just go to edit page, paste url and html class name, which is containing words and your lessons will be prepared automaticly. 
 
